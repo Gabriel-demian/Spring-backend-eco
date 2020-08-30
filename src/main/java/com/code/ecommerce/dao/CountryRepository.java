@@ -1,0 +1,16 @@
+package com.code.ecommerce.dao;
+
+import com.code.ecommerce.entity.Country;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
+// @RepositoryRestResource is used to set options on the public Repository interface -
+// it will automatically create endpoints as appropriate based on the type of Repository that is being extended
+//collectionResourceRel = The rel value to use when generating links to the collection resource.
+//path = "countries" expose /countries endpoint
+@CrossOrigin("http://localhost:4200")
+@RepositoryRestResource(collectionResourceRel = "countries", path = "countries")
+public interface CountryRepository extends JpaRepository<Country, Integer> {
+}
